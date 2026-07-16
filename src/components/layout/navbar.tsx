@@ -11,7 +11,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
@@ -51,12 +50,6 @@ interface Navbar1Props {
 }
 
 const Navbar = ({
-  logo = {
-    url: 'https://www.shadcnblocks.com',
-    src: 'https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg',
-    alt: 'logo',
-    title: 'Shadcnblocks.com',
-  },
   menu = [
     { title: 'Home', url: '/' },
     {
@@ -85,7 +78,7 @@ const Navbar = ({
         <nav className="hidden items-center justify-between lg:flex">
           <div className="flex items-center gap-6">
             {/* Logo */}
-            <Link href={logo.url} className="text-lg font-semibold">
+            <Link href="/" className="text-lg font-semibold">
               Blog Application
             </Link>
             <div className="flex items-center">
@@ -113,7 +106,7 @@ const Navbar = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href={logo.url} className="text-lg font-semibold">
+            <Link href="/" className="text-lg font-semibold">
               Blog Application
             </Link>
             <Sheet>
@@ -160,12 +153,12 @@ const renderMenuItem = (item: MenuItem) => {
 
   return (
     <NavigationMenuItem key={item.title}>
-      <NavigationMenuLink
+      <Link
         href={item.url}
         className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground"
       >
         {item.title}
-      </NavigationMenuLink>
+      </Link>
     </NavigationMenuItem>
   );
 };
@@ -183,9 +176,9 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="text-md font-semibold">
+    <Link key={item.title} href={item.url} className="text-md font-semibold">
       {item.title}
-    </a>
+    </Link>
   );
 };
 
