@@ -7,8 +7,6 @@ type BlogDetailsPageProps = {
   params: Promise<{ id: string }>;
 };
 
-export const dynamicParams = false;
-
 export async function generateStaticParams() {
   const { data } = await blogsService.getAllBlogs();
   return data?.data
